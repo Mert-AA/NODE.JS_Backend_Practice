@@ -1,3 +1,3 @@
-const fs = require('fs');
+const fs = require("fs");
 
-fs.writeFileSync('hello.txt', 'Greatings from Mert');
+fs.writeFileSync("hello.txt", "Greatings from Mert");
