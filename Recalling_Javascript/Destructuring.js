@@ -15,6 +15,6 @@ printName(person);
 const { name, age } = person;
 console.log(name, age);
 
-const hobbies = ["Sports", "Cooking"];
+const hobbies = ["Sports", "Gaming", "Cooking"];
 const [hobby1, hobby2] = hobbies;
 console.log(hobby1, hobby2);
