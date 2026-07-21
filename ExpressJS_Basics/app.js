@@ -1,30 +1,25 @@
-const http = require("http");
-
 const express = require('express');
 
 const app = express();
 
 app.use((req, res, next) => {
-    console.log('In the middleware!');
+    if (req.url === '/favicon.ico') return res.status(204).end();
     next();
 });
 
-app.use((req, res, next) => {
-    console.log('hello!');
-    next();
+app.use('/add-product',(req, res, next) => {
+    console.log('In the middleware!', req.url);
+    res.send('<form action="/product" method="POST"><input type="text" name="title"><button type="submit">Add Product</button></form>');
 });
 
-app.use((req, res, next) => {
-    console.log('In another middleware!');
+app.use('/product', (req, res, next) => {
+    console.log(req.body);
+    res.redirect('/');
 });
 
-
-const server = http.createServer(app);
-
-server.listen(3002);
-
-process.once('SIGKILL', () => {
-    server.close(() => {
-        process.exit(0);
-    });
+app.use('/',(req, res, next) => {
+    console.log('In another middleware!', req.url);
+    res.send('<h1>Hello from Express!</h1>');
 });
+
+app.listen(3002);
