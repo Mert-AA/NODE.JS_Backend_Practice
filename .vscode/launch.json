@@ -10,7 +10,10 @@
             "name": "Launch Program",
             "program": "${workspaceFolder}/ExpressJS_Basics/app.js",
             "restart": true,
-            "runtimeExecutable": "nodemon",
+            "runtimeArgs": [
+                "--watch",
+                "--watch-preserve-output"
+            ],
             "console":"integratedTerminal"
         }
     ]

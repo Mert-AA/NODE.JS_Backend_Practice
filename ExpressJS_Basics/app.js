@@ -10,9 +10,21 @@ app.use((req, res, next) => {
 });
 
 app.use((req, res, next) => {
+    console.log('hello!');
+    next();
+});
+
+app.use((req, res, next) => {
     console.log('In another middleware!');
 });
+
 
 const server = http.createServer(app);
 
 server.listen(3002);
+
+process.once('SIGKILL', () => {
+    server.close(() => {
+        process.exit(0);
+    });
+});
