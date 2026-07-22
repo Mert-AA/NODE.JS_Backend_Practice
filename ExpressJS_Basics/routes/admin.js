@@ -6,14 +6,8 @@ const productController = require('../controllers/products');
 
 const router = express.Router();
 
-const products = [];
+router.get('/add-product', productController.getAddProduct);
 
-router.get('/add-product', );
+router.post('/add-product', productController.postAddProduct);
 
-router.post('/add-product', (req, res, next) => {
-    products.push({title: req.body.title});
-    res.redirect('/');
-});
-
-exports.routes = router;
-exports.products = products;
+module.exports = router;
