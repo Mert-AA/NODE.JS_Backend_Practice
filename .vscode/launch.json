@@ -8,7 +8,7 @@
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "program": "${workspaceFolder}/ExpressJS_Basics/app.js",
+            "program": "${workspaceFolder}/ExpressJS_Part2/app.js",
             "restart": true,
             "runtimeArgs": [
                 "--watch",
